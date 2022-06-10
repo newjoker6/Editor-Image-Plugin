@@ -4,7 +4,7 @@
 
 ## To Change the Image
 To change the image shown on your background, simply open up the addons folder and replace the Background.png file with another png of your choosing. Be sure to name it Background.png to be
-recognized.
+recognized. Opacity will be handled by the code so no need to change this in your image. I use a png to allow the option to use images with transparent backgrounds which in my opinion provide the best results.
 
 
 ## Examples
