@@ -9,8 +9,7 @@ recognized.
 
 ## Examples
 <img src="images/demo1.png" >
-[](images/demo1.png)
-[](images/demo2.png)
+<img src="images/demo2.png" >
 
 
 ## Error on Load
