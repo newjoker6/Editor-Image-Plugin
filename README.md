@@ -9,6 +9,7 @@ recognized. Opacity will be handled by the code so no need to change this in you
 
 ## Examples
 <img src="images/demo1.png" >
+<img src="images/demo1.5.png" >
 <img src="images/demo2.png" >
 
 
