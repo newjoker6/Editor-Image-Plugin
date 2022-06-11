@@ -12,10 +12,9 @@ var vbox630
 
 func _enter_tree() -> void:
 	print('SAVE ANY SCRIPT TO FIX ERROR')
-	
-	OS.alert('Open and save any GDScript script to resolve loading error. ' \
-	+ "This error occurs as the necessary parts of the editor aren't loaded until you do. " \
-	+ 'I have found no way to delay this portion of the code that actually works.', 'Editor Image')
+	print('SAVE ANY SCRIPT TO FIX ERROR')
+	print('SAVE ANY SCRIPT TO FIX ERROR')
+
 	
 	var timer = Timer.new()
 	timer.wait_time = wait_time_between_script_checks
@@ -23,7 +22,7 @@ func _enter_tree() -> void:
 	self.add_child(timer)
 	timer.connect("timeout", self, 'on_timeout')
 
-	call_deferred('check_scripts')
+
 
 
 func match_rect(of: Control, to: Control) -> void:
@@ -32,11 +31,11 @@ func match_rect(of: Control, to: Control) -> void:
 	of.rect_global_position = to.rect_global_position
 	
 	
-func _exit_tree():
+func _exit_tree() -> void:
 	queue_free()
 
 
-func on_timeout():
+func on_timeout() -> void:
 	check_scripts()
 	open_scripts.clear()
 	
