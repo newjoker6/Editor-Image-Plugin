@@ -11,11 +11,7 @@ var vbox630
 
 
 func _enter_tree() -> void:
-	print('SAVE ANY SCRIPT TO FIX ERROR')
-	print('SAVE ANY SCRIPT TO FIX ERROR')
-	print('SAVE ANY SCRIPT TO FIX ERROR')
-
-	
+	print("SAVE ANY SCENE TO INITIALIZE YOUR BACKGROUND.")
 	var timer = Timer.new()
 	timer.wait_time = wait_time_between_script_checks
 	timer.set_autostart(true)
@@ -39,7 +35,7 @@ func on_timeout() -> void:
 	check_scripts()
 	open_scripts.clear()
 	
-	if not typeof(tabContainer) == 0:
+	if is_instance_valid(tabContainer) and tabContainer.get_children():
 		for s in tabContainer.get_children():
 			if 'ScriptTextEditor' in s.name:
 				var scriptedit = tabContainer.get_node(str(s.name)).get_child(0).get_child(0).get_child(0)
@@ -65,12 +61,22 @@ func add_image(code) -> void:
 
 
 func check_scripts() -> void:
-	base = get_editor_interface().get_base_control()
-	vbox630= base.get_child(0).get_child(1).get_child(1).get_child(1).get_child(0).get_child(0).get_child(0).get_child(0)
-
-	var ScriptTextEditor2 = vbox630.get_child(1).get_child(0).get_child(2).get_child(0).get_child(1).get_child(1).get_child(0)
-	var ScriptText = ScriptTextEditor2.get_child(0).get_child(0).get_child(0)
-	tabContainer = vbox630.get_child(1).get_child(0).get_child(2).get_child(0).get_child(1).get_child(1)
+	var script_count = get_editor_interface().get_script_editor().get_open_scripts()
+	if script_count:
+		base = get_editor_interface().get_base_control()
+		
+		if is_instance_valid(base) and is_instance_valid(base.get_child(0)):
+			
+			if base.get_child(0).get_child_count() >= 2:
+				
+				if is_instance_valid(base.get_child(0).get_child(1)) and is_instance_valid(base.get_child(0).get_child(1).get_child(1)):
+					
+					vbox630= base.get_child(0).get_child(1).get_child(1).get_child(1).get_child(0).get_child(0).get_child(0).get_child(0)
+					var ScriptTextEditor2 = vbox630.get_child(1).get_child(0).get_child(2).get_child(0).get_child(1).get_child(1).get_child(0)
+					var ScriptText = ScriptTextEditor2.get_child(0).get_child(0).get_child(0)
+					tabContainer = vbox630.get_child(1).get_child(0).get_child(2).get_child(0).get_child(1).get_child(1)
+	else:
+		pass
 
 
 
